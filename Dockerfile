@@ -9,11 +9,14 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
-ENV SHERLOCK_VERSION v0.0.0
+ENV SHERLOCK_VERSION 0.14.2
 
 # Update & install packages
 RUN apt-get update && \
     apt-get install -y git python3-pip
+
+#Create sherlock user
+RUN adduser --disabled-login --gecos 'Sherlock' sherlock
 
 # Install
 RUN git clone https://github.com/sherlock-project/sherlock.git && \
@@ -21,5 +24,7 @@ RUN git clone https://github.com/sherlock-project/sherlock.git && \
     python3 -m pip install -r requirements.txt
 
 WORKDIR /sherlock
+
+USER sherlock
 
 ENTRYPOINT ["python", "sherlock.py"]
