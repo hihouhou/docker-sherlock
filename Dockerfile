@@ -9,7 +9,7 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
-ENV SHERLOCK_VERSION 0.14.2
+ENV SHERLOCK_VERSION 0.14.3
 
 # Update & install packages
 RUN apt-get update && \
