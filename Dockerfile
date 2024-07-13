@@ -21,10 +21,10 @@ RUN adduser --disabled-login --gecos 'Sherlock' sherlock
 # Install
 RUN git clone https://github.com/sherlock-project/sherlock.git && \
     cd sherlock && \
-    python3 -m pip install -r requirements.txt
+    pip3 install --no-cache-dir sherlock-project==$SHERLOCK_VERSION
 
 WORKDIR /sherlock
 
 USER sherlock
 
-ENTRYPOINT ["python", "sherlock.py"]
+ENTRYPOINT ["sherlock"]
