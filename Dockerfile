@@ -9,7 +9,7 @@ FROM debian:latest
 
 LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
-ENV SHERLOCK_VERSION 0.15.0
+ENV SHERLOCK_VERSION=0.15.0
 
 # Update & install packages
 RUN apt-get update && \
@@ -19,7 +19,8 @@ RUN apt-get update && \
 RUN adduser --disabled-login --gecos 'Sherlock' sherlock
 
 # Install
-RUN git clone https://github.com/sherlock-project/sherlock.git && \
+RUN rm /usr/lib/python3.11/EXTERNALLY-MANAGED && \
+    git clone https://github.com/sherlock-project/sherlock.git && \
     cd sherlock && \
     pip3 install --no-cache-dir sherlock-project==$SHERLOCK_VERSION
 
