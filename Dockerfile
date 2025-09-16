@@ -9,7 +9,7 @@ FROM debian:latest
 
 LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
-ENV SHERLOCK_VERSION=0.15.0
+ENV SHERLOCK_VERSION=v0.16.0
 
 # Update & install packages
 RUN apt-get update && \
